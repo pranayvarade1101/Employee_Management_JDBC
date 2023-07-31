@@ -78,6 +78,7 @@ public class addEmployee extends HttpServlet {
 				if(n>0) {
 					System.out.println("Values Inserted Successfully (New Employee added)");
 					out.println("<h2> New Employee Added Successfully");
+					out.println("<br><br> <a href=addEmployee.html>Back to Home</a>");
 					out.println("</h2>");
 				}
 				else {
