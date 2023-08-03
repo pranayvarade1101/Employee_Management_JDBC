@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Employee</title>
+	<link rel="stylesheet" href="style2.css"></link>
+</head>
+<body>
+<p id="welcome">Welcome to Employee Management MiniProject using JDBC and MySql</p>
+
+    <div id="nav">
+        <ul>
+            <li><a href="employeeHome.html">Home</a></li>
+            <li><a href="addEmployee.html">Add New Employee</a></li>
+            <li><a href="retrieveEmployee.html">Retrieve Employee</a></li>
+            <li><a href="updateEmployee.html">Update Employee Details</a></li>
+            <li><a href="#">Delete an Employee</a></li>
+            <li><a href="#">Show all Employees</a></li>
+            
+        </ul>
+    </div>
+
+    <form method="post" action="updateEmployee">
+        <div id="centerIt">
+            <h2>Enter the Name of the Employee to be updated</h2>
+            
+            <input type="text" name="eName" placeholder="Name"> 
+            
+            <br>
+            <h3>Select the field to be Updated: <br><label>Field</label>
+            <select>
+                <option value="1">Name</option>
+                <option value="2">Address</option>
+                <option value="3">Salary</option>
+                <option value="4">Designation</option>
+                <option value="5">Phone</option>
+                <option value="6">Email</option>
+
+            </select><br><br></h3>
+            <input type="submit" value="Update">
+        </div>
+    </form>
+
+</body>
+</html>
