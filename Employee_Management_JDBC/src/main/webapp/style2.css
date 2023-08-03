@@ -7,7 +7,7 @@
 #welcome{
     text-align: center;
     font-size: 40px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'High Tower Text';
     color: rgb(134, 76, 14);
     
 }
@@ -48,4 +48,11 @@ li a{
 li a:hover{
     background-color:rgb(175, 255, 46);
     color:#fff;
+}
+
+
+
+#centerIt{
+    text-align: center;
+    font-family: 'Book Antiqua';
 }

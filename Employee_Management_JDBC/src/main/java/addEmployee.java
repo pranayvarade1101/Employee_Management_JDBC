@@ -77,9 +77,32 @@ public class addEmployee extends HttpServlet {
 				int n=pstmt.executeUpdate();// executeUpdate() returns integer which denotes the no. of rows affected in the table
 				if(n>0) {
 					System.out.println("Values Inserted Successfully (New Employee added)");
-					out.println("<h2> New Employee Added Successfully");
-					out.println("<br><br> <a href=addEmployee.html>Back to Home</a>");
-					out.println("</h2>");
+					
+					
+					out.print("<head>\r\n"
+							+ "<meta charset=\"ISO-8859-1\">\r\n"
+							+ "<title>Retrieve Employee</title>\r\n"
+							+ "	<link rel=\"stylesheet\" href=\"style2.css\"></link>\r\n"
+							+ "</head>\r\n"
+							+ "<body>\r\n"
+							+ "<p id=\"welcome\">Welcome to Employee Management MiniProject using JDBC and MySql</p>\r\n"
+							+ "\r\n"
+							+ "    <div id=\"nav\">\r\n"
+							+ "        <ul>\r\n"
+							+ "            <li><a href=\"employeeHome.html\">Home</a></li>\r\n"
+							+ "            <li><a href=\"addEmployee.html\">Add New Employee</a></li>\r\n"
+							+ "            <li><a href=\"retrieveEmployee.html\">Retrieve Employee</a></li>\r\n"
+							+ "            <li><a href=\"#\">Update Employee Details</a></li>\r\n"
+							+ "            <li><a href=\"#\">Delete an Employee</a></li>\r\n"
+							+ "            <li><a href=\"#\">Show all Employees</a></li>\r\n"
+							+ "            \r\n"
+							+ "        </ul>\r\n"
+							+ "    </div>");
+					
+					
+					out.println("<center><h2> New Employee Added Successfully");
+					out.println("<br><br> <a href=addEmployee.html>Back</a>");
+					out.println("</h2></center>");
 				}
 				else {
 					System.out.println("Values Not Inserted Successfully");
