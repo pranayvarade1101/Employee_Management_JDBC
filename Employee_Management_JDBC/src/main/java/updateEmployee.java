@@ -76,7 +76,7 @@ public class updateEmployee extends HttpServlet {
 							+ "            <li><a href=\"addEmployee.html\">Add New Employee</a></li>\r\n"
 							+ "            <li><a href=\"retrieveEmployee.html\">Retrieve Employee</a></li>\r\n"
 							+ "            <li><a href=\"updateEmployee.html\">Update Employee Details</a></li>\r\n"
-							+ "            <li><a href=\"#\">Delete an Employee</a></li>\r\n"
+							+ "            <li><a href=\"deleteEmployee.html\">Delete an Employee</a></li>\r\n"
 							+ "            <li><a href=\"#\">Show all Employees</a></li>\r\n"
 							+ "            \r\n"
 							+ "        </ul>\r\n"

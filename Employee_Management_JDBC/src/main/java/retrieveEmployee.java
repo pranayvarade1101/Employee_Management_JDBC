@@ -63,18 +63,7 @@ public class retrieveEmployee extends HttpServlet {
                     		+ "</head>\r\n"
                     		+ "<body>\r\n"
                     		+ "<p id=\"welcome\">Welcome to Employee Management MiniProject using JDBC and MySql</p>\r\n"
-                    		+ "\r\n"
-                    		+ "    <div id=\"nav\">\r\n"
-                    		+ "        <ul>\r\n"
-                    		+ "            <li><a href=\"employeeHome.html\">Home</a></li>\r\n"
-                    		+ "            <li><a href=\"addEmployee.html\">Add New Employee</a></li>\r\n"
-                    		+ "            <li><a href=\"retrieveEmployee.html\">Retrieve Employee</a></li>\r\n"
-                    		+ "            <li><a href=\"#\">Update Employee Details</a></li>\r\n"
-                    		+ "            <li><a href=\"#\">Delete an Employee</a></li>\r\n"
-                    		+ "            <li><a href=\"#\">Show all Employees</a></li>\r\n"
-                    		+ "            \r\n"
-                    		+ "        </ul>\r\n"
-                    		+ "    </div> ");
+                    		+ "\r\n");
                     
                     out.print("<br><br><br>");
                     
@@ -106,6 +95,7 @@ public class retrieveEmployee extends HttpServlet {
             }
         } catch (SQLException e) {
             out.println("<center><p>Error occurred while processing the request.</p></center>");
+            System.out.println("Not retrieved employee due to an exception!");
             e.printStackTrace();
         } finally {
             // Close resources in the reverse order of their creation
