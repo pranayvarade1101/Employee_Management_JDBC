@@ -33,7 +33,7 @@ public class retrieveEmployee extends HttpServlet {
 
         // Getting inputs from retrieveEmployee.html
         int eid = Integer.parseInt(request.getParameter("eId"));
-        System.out.println("The name entered is: " + eid);
+        System.out.println("The ID entered is: " + eid);
 
         // Establishing connection
         Connection conn = connectionDb.getConnection();
