@@ -48,6 +48,7 @@ public class addEmployee extends HttpServlet {
 		response.setContentType("text/html");
 		
 		// inputs from addEmployee.html
+		int eid=Integer.parseInt(request.getParameter("eId"));
 		String ename=request.getParameter("eName");
 		String email=request.getParameter("email");
 			String phoneStr=request.getParameter("phone");
@@ -64,13 +65,14 @@ public class addEmployee extends HttpServlet {
 		if(conn!=null) {
 		// Creating Statement
 			try {
-				PreparedStatement pstmt=conn.prepareStatement("insert into employee(ename,address,salary,designation,phone,email) values(?,?,?,?,?,?)");
-				pstmt.setString(1,ename);
-				pstmt.setString(2, addr);
-				pstmt.setInt(3,salary);
-				pstmt.setString(4,desig);
-				pstmt.setLong(5,phone);
-				pstmt.setString(6, email);
+				PreparedStatement pstmt=conn.prepareStatement("insert into employee(eid,ename,email,phone,designation,salary,address) values(?,?,?,?,?,?,?)");
+				pstmt.setInt(1, eid);
+				pstmt.setString(2,ename);
+				pstmt.setString(3, email);
+				pstmt.setLong(4,phone);
+				pstmt.setString(5,desig);
+				pstmt.setInt(6,salary);
+				pstmt.setString(7, addr);
 				
 				
 				// Executing the Query
