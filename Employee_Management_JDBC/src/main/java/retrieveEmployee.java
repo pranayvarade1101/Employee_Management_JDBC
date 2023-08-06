@@ -32,26 +32,27 @@ public class retrieveEmployee extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Getting inputs from retrieveEmployee.html
-        String ename = request.getParameter("eName");
-        System.out.println("The name entered is: " + ename);
+        int eid = Integer.parseInt(request.getParameter("eId"));
+        System.out.println("The name entered is: " + eid);
 
         // Establishing connection
         Connection conn = connectionDb.getConnection();
 
         try {
             if (conn != null) {
-                PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM employee WHERE ename=?");
-                pstmt.setString(1, ename);
+                PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM employee WHERE eid=?");
+                pstmt.setInt(1, eid);
 
                 ResultSet rs = pstmt.executeQuery();
 
                 if (rs.next()) {
-                    int eno = rs.getInt("eno");
-                    String address = rs.getString("address");
-                    double salary = rs.getDouble("salary");
-                    String designation = rs.getString("designation");
-                    String phone = rs.getString("phone");
+                    int eid1 = rs.getInt("eid");
+                    String ename=rs.getString("ename");
                     String email = rs.getString("email");
+                    long phone = rs.getLong("phone");
+                    String designation = rs.getString("designation");
+                    float sal = rs.getFloat("salary");
+                    String addr = rs.getString("address");
 
                     // Print the results in a table format
                     
@@ -81,16 +82,16 @@ public class retrieveEmployee extends HttpServlet {
                     		+ "     <tr style=\"font-size: 25px;\">\r\n"
                     		+ "            <th>Employee Id</th>\r\n"
                     		+ "            <th>Name</th>\r\n"
-                    		+ "            <th>Address</th>\r\n"
-                    		+ "            <th>Salary</th>\r\n"
-                    		+ "            <th>Designation</th>\r\n"
-                    		+ "            <th>Phone</th>\r\n"
                     		+ "            <th>Email</th>\r\n"
+                    		+ "            <th>Phone</th>\r\n"
+                    		+ "            <th>Designation</th>\r\n"
+                    		+ "            <th>Salary</th>\r\n"
+                    		+ "            <th>Address</th>\r\n"
                     		+ "     </tr>");
             
                 
-                    out.println("<tr style=\"font-size: 20px;\"><td>" + eno + " </td><td>" + ename + " </td><td>" + address + " </td><td>" + salary
-                            + " </td><td>" + designation + " </td><td>" + phone + " </td><td>" + email+"</tr>");
+                    out.println("<tr style=\"font-size: 20px;\"><td>" + eid1 + " </td><td>" + ename + " </td><td>" +email + " </td><td>" + phone
+                            + " </td><td>" + designation + " </td><td>" + sal + " </td><td>" + addr+"</tr>");
                     
                     out.print("<br><br>");
                     
@@ -98,7 +99,7 @@ public class retrieveEmployee extends HttpServlet {
                     out.print("</br></center>");
                   
                 } else {
-                    out.println("<center><p>Record not found for " + ename + "</p></center>");
+                    out.println("<center><p>Record not found for " + eid + "</p></center>");
                 }
             } else {
                 out.println("<center><p>Failed to connect with the database!</p></center>");
