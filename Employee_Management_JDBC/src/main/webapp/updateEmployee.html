@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <title>Retrieve Employee</title>
 	<link rel="stylesheet" href="style2.css"></link>
+    <link rel="stylesheet" href="update.css"></link>
 </head>
 <body>
 <p id="welcome">Welcome to Employee Management MiniProject using JDBC and MySql</p>
@@ -20,26 +21,23 @@
         </ul>
     </div>
 
-    <form method="post" action="updateEmployee">
+    
         <div id="centerIt">
-            <h2>Enter the ID of the Employee to be updated</h2>
-            
-            <input type="text" name="eId" placeholder="ID"> 
-            
+            <h2>What field do you want to update</h2>
             <br>
-            <h3>Select the field to be Updated: <br><label for="Field">Field</label>
-            <select name="option">
-                <option value="1">Name</option>
-                <option value="2">Email</option>
-                <option value="3">Phone</option>
-                <option value="4">Designation</option>
-                <option value="5">Salary</option>
-                <option value="6">Address</option>
+            <h1>Update</h1>
+            <div id="update">
+            <ul>
+                <li id="update1"><a href="updateName.html">Name</a></li>
+                <li id="update1"><a href="updateEmail.html">Email</a></li>
+                <li id="update1"><a href="updatePhone.html">Phone Number</a></li>
+                <li id="update1"><a href="updateDesignation.html">Designation</a></li>
+                <li id="update1"><a href="updateSalary.html">Salary</a></li>
+                <li id="update1"><a href="updateAddress.html">Address</a></li>
 
-            </select><br></h3>
-            <input type="submit" value="Update">
+            </ul>
         </div>
-    </form>
+   
 
 </body>
 </html>
