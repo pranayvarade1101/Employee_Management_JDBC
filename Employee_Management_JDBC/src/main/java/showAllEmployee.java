@@ -55,6 +55,8 @@ public class showAllEmployee extends HttpServlet {
                 		+ "            <th>Designation</th>\r\n"
                 		+ "            <th>Salary</th>\r\n"
                 		+ "            <th>Address</th>\r\n"
+                		+ "            <th>Update</th>\r\n"
+                		+ "            <th>Delete</th>\r\n"
                 		+ "     </tr>");
                 while (rs.next()) {
                     int eid = rs.getInt("eid");
@@ -66,7 +68,10 @@ public class showAllEmployee extends HttpServlet {
                     String addr = rs.getString("address");
 
                     out.println("<tr><td>" + eid + "</td><td>" + ename + "</td><td>" + email + "</td><td>" + phone
-                            + "</td><td>" + designation + "</td><td>" + sal + "</td><td>" + addr + "</td></tr>");
+                            + "</td><td>" + designation + "</td><td>" + sal + "</td><td>" + addr + "</td>");
+                    out.print("<td><a href=\"updateEmployee.html\">Update</a></td>");
+                    out.print("<td><a href=\"deleteEmployee.html\">Delete</a></td>");
+                    out.print("</tr>");
                 }
                 
                 out.print("<br><br>");
