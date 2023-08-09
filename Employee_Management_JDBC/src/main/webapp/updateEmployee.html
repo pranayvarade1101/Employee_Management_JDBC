@@ -22,21 +22,45 @@
     </div>
 
     
-        <div id="centerIt">
-            <h2>What field do you want to update</h2>
+    <div id="centerIt">
+        <form action="updateEmployee" method="post">
+        
+        <div id="fontIt">
+        
+        <h2>Please fill in the fields you wish to update</h2>
+        <br>
+        <h3>
+            Enter Employee Id : <input type=text name=eId placeholder=Id>
             <br>
-            <h1>Update</h1>
-            <div id="update">
-            <ul>
-                <li id="update1"><a href="updateName.html">Name</a></li>
-                <li id="update1"><a href="updateEmail.html">Email</a></li>
-                <li id="update1"><a href="updatePhone.html">Phone Number</a></li>
-                <li id="update1"><a href="updateDesignation.html">Designation</a></li>
-                <li id="update1"><a href="updateSalary.html">Salary</a></li>
-                <li id="update1"><a href="updateAddress.html">Address</a></li>
-
-            </ul>
-        </div>
+            <br>
+        </h3>
+        <h3>
+            Enter New full Name : <input type=text name=newName placeholder=Full_name>
+            <br> 
+        </h3>
+            <h3>
+            Enter New Email : <input type=email name=newEmail placeholder=Email>
+            <br> 
+        </h3>
+        <h3>
+            Enter New Phone number : <input type=text name=newPhone placeholder=Phone>
+            <br> 
+        </h3>
+        <h3>
+            Enter New Address : <input type=text name=newAddr placeholder=Address>
+            <br> 
+        </h3>
+        <h3>
+            Enter New Salary : <input type=text name=newSal placeholder=Salary>
+            <br> 
+        </h3>
+        <h3>
+            Enter New Designation : <input type=text name=newDesig placeholder=Designation>
+            <br> 
+        </h3>
+        <input type=submit value="Update">
+        
+    </div>
    
 
 </body>

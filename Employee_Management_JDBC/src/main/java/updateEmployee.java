@@ -47,68 +47,68 @@ public class updateEmployee extends HttpServlet {
 		
 		// getting Inputs from updateEmployee.html
 		int eid=Integer.parseInt(request.getParameter("eId"));
-		int option=Integer.parseInt(request.getParameter("option"));
-		
-		System.out.println("Entered Eid: "+eid+"\noption: "+option);
-		
+		String newName=request.getParameter("newName");
+		String newEmail=request.getParameter("newEmail");
+		String phoneStr=request.getParameter("newPhone");
+			long newPhone=0L; // initialized long to 0
+			newPhone=Long.parseLong(phoneStr);//converted the string phone number in long datatype
 
+		String newAddr=request.getParameter("newAddr");
+		String newDesig=request.getParameter("newDesig");
+		int newSal=Integer.parseInt(request.getParameter("newSal"));
+		
+		System.out.println("Entered details for update are :");
+		System.out.println("Id: "+eid);
+		System.out.println("newName: "+newName);
+		System.out.println("newEmail: "+newEmail);
+		System.out.println("newPhone: "+newPhone);
+		System.out.println("newAddr: "+newAddr);
+		System.out.println("newDesig: "+newDesig);
+		System.out.println("newSal: "+newSal);
+		
+		
+		
 		// establishing connection
 		Connection conn=connectionDb.getConnection();
 		if(conn!=null) {
 			
 			// Creating Statement
 			try {
-				switch(option) {
 				
-				case 1:
-					out.println("<html>\r\n"
-							+ "<head>\r\n"
+				PreparedStatement pstmt=conn.prepareStatement("update employee set ename=?,email=?,phone=?,designation=?,salary=?,address=? where eid=?");
+				pstmt.setString(1,newName);
+				pstmt.setString(2,newEmail);
+				pstmt.setLong(3,newPhone);
+				pstmt.setString(4,newDesig);
+				pstmt.setInt(5,newSal);
+				pstmt.setString(6,newAddr);
+				
+				pstmt.setInt(7, eid);
+				
+				int n=pstmt.executeUpdate();	
+				if(n>0) {
+					System.out.println("Employee Details updated successfully");
+					out.println("Employee Details updated successfully");
+					
+					out.print("<head>\r\n"
 							+ "<meta charset=\"ISO-8859-1\">\r\n"
 							+ "<title>Retrieve Employee</title>\r\n"
 							+ "	<link rel=\"stylesheet\" href=\"style2.css\"></link>\r\n"
 							+ "</head>\r\n"
 							+ "<body>\r\n"
 							+ "<p id=\"welcome\">Welcome to Employee Management MiniProject using JDBC and MySql</p>\r\n"
-							+ "\r\n"
-							+ "    <div id=\"nav\">\r\n"
-							+ "        <ul>\r\n"
-							+ "            <li><a href=\"employeeHome.html\">Home</a></li>\r\n"
-							+ "            <li><a href=\"addEmployee.html\">Add New Employee</a></li>\r\n"
-							+ "            <li><a href=\"retrieveEmployee.html\">Retrieve Employee</a></li>\r\n"
-							+ "            <li><a href=\"updateEmployee.html\">Update Employee Details</a></li>\r\n"
-							+ "            <li><a href=\"deleteEmployee.html\">Delete an Employee</a></li>\r\n"
-							+ "            <li><a href=\"#\">Show all Employees</a></li>\r\n"
-							+ "            \r\n"
-							+ "        </ul>\r\n"
-							+ "    </div>  \r\n"
-							+ "    <form method=\"post\" action=\"updateEmployee\">\r\n"
-							+ "    	<div id=\"centerIt\">\r\n"
-							+ "            <br>\r\n"
-							+ "    		<h2>Enter New Name for the Employee</h2>\r\n"
-							+ "    		<br>\r\n"
-							+ "    		<input type=\"text\" name=\"newName\" placeholder=\"New_Name\">\r\n"
-							+ "    		<br>\r\n"
-							+ "            <br>\r\n"
-							+ "    		<input type=\"submit\" value=\"Update\">\r\n"
-							+ "		</div>\r\n"
-							+ "	</form>\r\n"
-							+ "</body>\r\n"
-							+ "</html>");
+							+ "\r\n");
 					
-					String newName=request.getParameter("newName");
-					PreparedStatement pstmt=conn.prepareStatement("update employee set ename=? where eid=?");
-						pstmt.setString(1,newName);
-						pstmt.setInt(2,option);
-						
-					break;
 					
-					default:System.out.println("ImProper input");
+					out.println("<center><h2>Employee Updated Successfully");
+					out.println("<br><br> <a href=updateEmployee.html>Back</a>");
+					out.println("</h2></center>");
+					
 				}
-				
-				
-				
-				
-				
+				else {
+					System.out.println("Employee Details Not updated!");
+					out.println("Employee Details Not updated!");
+				}	
 				
 			}catch(SQLException e) {
 				e.printStackTrace();
